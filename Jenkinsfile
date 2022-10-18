@@ -27,7 +27,7 @@ pipeline {
                 echo '...Image successfully pushed'
             }
         }
-        stage('pull image from DockerHub') {
+        stage('Pull image from DockerHub') {
             steps {
                 echo 'Pulling the image from docker-hub...'
                 sh('docker pull someshlad/jen-image')
