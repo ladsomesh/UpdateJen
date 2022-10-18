@@ -37,6 +37,7 @@ pipeline {
         }
         stage('Starting the container') {
             steps {
+                echo 'Starting Container...'
                sh '''
                if [ $(docker ps | awk \'{print $NF}\' | grep somesh-jen-container) = \'somesh-jen-container\' ]; then
                         docker stop "somesh-jen-container"
@@ -45,6 +46,7 @@ pipeline {
                 '''
                 sh('docker run -it -d -p 8081:80 --name somesh-jen-container someshlad/jen-image')
                 sh('docker exec somesh-jen-container service nginx start')
+                echo '...Container Started Successfully'
             }
         }
     }
