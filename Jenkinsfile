@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'Starting Container...'
                sh '''
-               if [ (docker ps | awk \'{print $NF}\' | grep somesh-jen-container) = \'somesh-jen-container\' ]; then
+               if [ $(docker ps | awk \'{print $NF}\' | grep somesh-jen-container) = \'somesh-jen-container\' ]; then
                         docker stop "somesh-jen-container"
                         docker rm "somesh-jen-container"
                 fi
