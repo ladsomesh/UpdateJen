@@ -8,9 +8,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Image building started....'
-                sh('sudo -i')
-                sh('cd /')
-                sh('cd /home/somesh/dockSomesh')
                 sh('docker build -t someshlad/jen-image .')
                 echo '...Image successfully built'
             }
@@ -21,7 +18,6 @@ pipeline {
                 echo "Connected to Docker-Hub"
                 echo 'Publishing the image to Docker-Hub...'
                 sh"""
-                sudo -i
                 docker image push -a someshlad/jen-image
                 """
                 echo '...Image successfully pushed'
