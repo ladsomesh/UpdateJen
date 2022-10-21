@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    parameters {
+        booleanParam defaultValue: true, name: 'Status'
+    }
+
     environment{
         user_pass=credentials('4a6a05ca-0f5a-4184-bf68-7e13200c4027')
     }
@@ -43,6 +47,7 @@ pipeline {
                 sh('docker run -it -d -p 8081:80 --name somesh-jen-container someshlad/jen-image')
                 sh('docker exec somesh-jen-container service nginx start')
                 echo '...Container Started Successfully'
+                echo "Value of status is: ${params.Status}"
             }
         }
     }
