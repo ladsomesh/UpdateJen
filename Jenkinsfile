@@ -11,6 +11,7 @@ pipeline {
         user_pass=credentials('4a6a05ca-0f5a-4184-bf68-7e13200c4027')
     }
     stages {
+                echo "${params.Stage}"
                 stage('Build Docker Image') {
                     when{expression {params.Stage == 1}}
                     steps {
