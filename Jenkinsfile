@@ -12,7 +12,7 @@ pipeline {
     }
     stages {
                 stage('Build Docker Image') {
-                    when{expression {params.Stage == "1"}}
+                    when{expression {params.Stage == '1'}}
                     steps {
                         echo 'Image building started....'
                         sh('docker build -t someshlad/jen-image .')
@@ -22,7 +22,7 @@ pipeline {
                 }
 
                 stage('Publish to DockerHub') {
-                    when{expression {params.Stage == "2"}}
+                    when{expression {params.Stage == '2'}}
                     steps {  
                         sh("docker login -u $user_pass_USR -p $user_pass_PSW")
                         echo "Connected to Docker-Hub"
@@ -35,7 +35,7 @@ pipeline {
                 }
 
                 stage('Pull image from DockerHub') {
-                    when{expression {params.Stage == "3"}}
+                    when{expression {params.Stage == '3'}}
                     steps {
                         echo 'Pulling the image from docker-hub...'
                         sh('docker pull someshlad/jen-image')
@@ -44,7 +44,7 @@ pipeline {
                     }
                 }
                 stage('Starting the container') {
-                    when{expression {params.Stage == "4"}}
+                    when{expression {params.Stage == '4'}}
                     steps {
                         echo 'Starting Container...'
                         sh('docker run -it -d -p 8081:80 --name somesh-jen-container someshlad/jen-image')
