@@ -15,7 +15,7 @@ pipeline {
     }
     stages {
         switch(${params.Stage}) {
-            case 1:
+            case "1":
                 stage('Build Docker Image') {
                     steps {
                         echo 'Image building started....'
@@ -24,7 +24,7 @@ pipeline {
                     }
                 }
                 break
-            case 2:
+            case "2":
                 stage('Publish to DockerHub') {
                     steps {  
                         sh("docker login -u $user_pass_USR -p $user_pass_PSW")
@@ -37,7 +37,7 @@ pipeline {
                     }
                 }
                 break
-            case 3:
+            case "3":
                 stage('Pull image from DockerHub') {
                     steps {
                         echo 'Pulling the image from docker-hub...'
