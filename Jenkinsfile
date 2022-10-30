@@ -3,9 +3,6 @@ pipeline {
 
     parameters {
         booleanParam defaultValue: true, name: 'Status'
-    }
-
-    parameters {
         choice choices: ['1', '2', '3'], name: 'Stage'
     }
 
