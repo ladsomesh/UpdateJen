@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         booleanParam defaultValue: true, name: 'Status'
-        choice choices: ['1', '2', '3'], name: 'Stage'
+        choice choices: ['1', '2', '3', '4'], name: 'Stage'
     }
 
 
