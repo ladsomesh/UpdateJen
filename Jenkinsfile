@@ -14,6 +14,7 @@ pipeline {
                 stage('Build Docker Image') {
                     when{expression {params.Stage == '1'}}
                     steps {
+                        sh("docker login -u $user_pass_USR -p $user_pass_PSW")
                         echo 'Image building started....'
                         sh('docker build -t someshlad/jen-image .')
                         echo '...Image successfully built'
