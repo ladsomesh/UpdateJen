@@ -8,7 +8,7 @@ pipeline {
 
 
     environment{
-        user_pass=credentials('4a6a05ca-0f5a-4184-bf68-7e13200c4027')
+        user_pass=credentials('git-creds')
     }
     stages {
                 stage('Build Docker Image') {
