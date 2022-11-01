@@ -8,7 +8,7 @@ pipeline {
 
 
     environment{
-        user_pass=credentials('7d0aede5-4fda-4325-8e07-cfea2784c72b')
+        user_pass=credentials('dock-cred')
     }
     stages {
                 stage('Build Docker Image') {
