@@ -1,5 +1,5 @@
 pipeline {
-    agent Slave01
+    agent ("Slave01")
 
     parameters {
         booleanParam defaultValue: true, name: 'Status'
